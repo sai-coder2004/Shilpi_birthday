@@ -52,3 +52,4 @@ keeps working after a refresh or a shared deep link.
 - Photos: if you want to add real photos, drop image files into
   public/ and reference them as /your-image.jpg — happy to help wire
   up a photo gallery chapter if you want one.
+# Shilpi_birthday
