@@ -1,0 +1,158 @@
+/* ============================================================
+   Design tokens — "midnight garden party" palette.
+   Deep plum night sky, warm gold candlelight, one hit of pink.
+   Edit these to retheme the whole site.
+   ============================================================ */
+:root {
+  --bg: #1a0f26;
+  --bg-2: #241531;
+  --bg-3: #2e1a3d;
+  --panel: #2b1838;
+  --line: rgba(245, 230, 255, 0.1);
+
+  --cream: #fdf6ea;
+  --lavender: #c9a9e8;
+  --lavender-dim: #9c86b8;
+  --pink: #ff6a9e;
+  --pink-deep: #e0447f;
+  --gold: #f3c66b;
+  --gold-deep: #d9a53a;
+
+  --display: "Fraunces", ui-serif, Georgia, serif;
+  --body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --hand: "Caveat", cursive;
+
+  --container: 720px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* subtle starfield / night texture behind everything */
+.night-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.45), transparent),
+    radial-gradient(1.5px 1.5px at 45% 35%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.35), transparent),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 55%, var(--bg-3) 100%);
+  background-size: 100% 100%;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6.5rem 1.5rem 5rem;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+}
+
+.eyebrow {
+  font-family: var(--body);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--gold);
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--cream);
+}
+
+p {
+  line-height: 1.65;
+  color: var(--lavender);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.35s var(--ease-out), color 0.35s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: #241531;
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.btn--pink {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+.btn--pink:hover {
+  background: var(--pink);
+  color: #1a0f26;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
